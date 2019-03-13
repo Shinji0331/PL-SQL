@@ -1,44 +1,40 @@
 --*************************************************************************
 --パッケージを作成にあたる構文
 --FUNCTION,PROCEDUREを中に記載して使用
---*************************************************************************
-
-
+--***************/*********************************************************
 create or replace
-PACKAGE パッケージ名 Is
+PACKAGE samplepac IS
 
-FUNCTION ファンクション名(
-変数A IN VARCHAR2
-)RETURN VARCHAR2;
+    FUNCTION FUN_A(
+         hensu_A IN VARCHAR2
+    )RETURN VARCHAR2;
 
-END パッケージ名;
+    END samplepac;
 /
 show errors;
 
 create or replace
-PACKAGE BODY パッケージ名 IS
+PACKAGE BODY samplepac IS
 
-FUNCTION ファンクション名(
-変数A IN VARCHAR2
-)RETURN VARCHAR2
-IS
+    FUNCTION FUN_A(
+         hensu_A IN VARCHAR2
+    )RETURN VARCHAR2
+    IS
 
-宣言部分
+    --宣言部分
 
-BEGIN
+    BEGIN
 
---テスト用なのでパラメータを直接返すだけの設定
-RETURN 変数A
+    --テスト用なのでパラメータを直接返すだけの設定
+        RETURN hensu_A;
 
-EXCEPTION
+    EXCEPTION
 
-     WHEN OTHERS THEN
-     RETURN NULL;
+        WHEN OTHERS THEN
+             RETURN NULL;
 
-END ファンクション名
+    END FUN_A;
 
-END パッケージ名;
+END samplepac;
 /
 errors;
-
-
